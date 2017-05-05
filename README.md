@@ -1,5 +1,5 @@
 # Leaflet.draw-extension
-Add a "shapefile" button to the leaflet draw toolbar.
+Add a "shapefile" button to the leaflet draw toolbar. Shapefile needs to be in a .zip file, can be multiple shapefiles in one zip.
 
 ## [Demo](https://ahalota.github.io/Leaflet.draw-extension/demo.html)
 
