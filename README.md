@@ -32,4 +32,4 @@ To Do: I really want this to work as an added feature to the Draw control, not n
 
 Tool will fire one L.Draw.CREATED event for each unique Polygon in the imported shapefile. Multipolygons will be one single event.
 
-Requires Leaflet.draw, leaflet-shapefile, and shp plugins. Versions used when I wrote this plugin are included in this repository for convenience. If you put everything into a 'lib' folder in your final project you will have to copy the 'images' file into there too. The picture should be transparent but right now has a white background, I'll fix it some day.
+Requires [Leaflet.draw](https://github.com/Leaflet/Leaflet.draw), [leaflet-shapefile](https://github.com/calvinmetcalf/leaflet.shapefile), and [shapefile-js](https://github.com/calvinmetcalf/shapefile-js) plugins. Versions used when I wrote this plugin are included in this repository for convenience. If you put everything into a 'lib' folder in your final project you will have to copy the 'images' file into there too. The picture should be transparent but right now has a white background, I'll fix it some day.
