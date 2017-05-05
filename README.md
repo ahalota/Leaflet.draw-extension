@@ -1,5 +1,5 @@
 # Leaflet.draw-extension
-Add a "shapefile" and "geojson" button to the leaflet draw toolbar. "geojson" is not yet implemented.
+Add a "shapefile" button to the leaflet draw toolbar.
 
 ## [Demo](https://ahalota.github.io/Leaflet.draw-extension/demo.html)
 
