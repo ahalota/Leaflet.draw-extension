@@ -1,0 +1,81 @@
+<html>
+<head><title>Leaflet-draw Extensions Demo</title>
+<link rel="stylesheet" href="lib/leaflet.css">
+<script src="lib/leaflet-src.js"></script>
+<link rel="stylesheet" href="lib/Leaflet.draw.css">
+<script src="lib/Leaflet.draw-src.js"></script>
+<script src="lib/leaflet.shapefile/shp.js"></script>
+<script src="lib/leaflet.shapefile/leaflet.shapefile.js"></script>
+
+<script src="leaflet.draw-geojson.js"></script>
+<link rel="stylesheet" href="leaflet.draw-shapefile.css">
+<script src="leaflet.draw-shapefile.js"></script>
+
+<style>
+html, body, #map{
+	padding:0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+</style>
+</head>
+
+<body onload="init()">
+	<div id="map"></div>
+</body>
+
+<script>
+var map, drawControl, drawLayers;
+
+function init(){
+	var topo = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: '&copy ESRI'
+	});
+	
+	map = L.map('map', {
+		center: [63.50, -146.62],
+	    zoom: 6,
+	    minZoom: 4,
+	    maxZoom: 15,
+	    layers: [topo],
+	    zoomControl: false
+	});
+	
+	drawLayers = new L.FeatureGroup();
+	drawControl = new L.Control.DrawPlus({
+		position: 'topright',		
+		draw: {
+			circle: false,
+			polyline: false,
+			shapefile: {
+				shapeOptions:{
+			    	color: 'black',
+			    	weight: 3,
+			    	opacity: 1,
+			    	fillOpacity: 0					
+				}
+		    }, //Turn on my custom extension
+			geojson: true,   //Could have options if needed.
+		},
+		edit: {
+			featureGroup: drawLayers,
+			edit: false
+		}
+	});
+	
+	map.addLayer(drawLayers);
+	map.addControl(drawControl);
+	
+	map.on(L.Draw.Event.CREATED, function(e){
+		drawLayers.addLayer(e.layer);
+	});
+	
+	drawLayers.on('click',function(e){
+		console.log(e.layer);
+	});
+}
+</script>
+
+
+</html>
